@@ -1,0 +1,5 @@
+<div *ngIf="mostrar" class="resultados">
+    <p>Total Gastos: $<span class="total-gastos">{{ totalGastos }}</span></p>
+    <p>Saldo Restante: $<span class="saldo-restante" [class.negativo]="saldoRestante < 0">{{ saldoRestante }}</span></p>
+    <p class="alerta" [class.negativo]="saldoRestante < 0">{{ mensaje }}</p>
+</div>

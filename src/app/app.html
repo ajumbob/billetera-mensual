@@ -24,9 +24,11 @@
     <button (click)="calcularSaldo()">Calcular Saldo</button>
     <button (click)="limpiar()" class="btn-limpiar">Limpiar Datos</button>
 
-    <div *ngIf="mostrarResultados" class="resultados">
-        <p>Total Gastos: $<span class="total-gastos">{{ totalGastos }}</span></p>
-        <p>Saldo Restante: $<span class="saldo-restante" [class.negativo]="saldoRestante < 0">{{ saldoRestante }}</span></p>
-        <p class="alerta" [class.negativo]="saldoRestante < 0">{{ mensaje }}</p>
-    </div>
+    <!-- Llamamos al componente hijo y le pasamos los datos -->
+    <app-panel-resultados 
+        [mostrar]="mostrarResultados"
+        [totalGastos]="totalGastos"
+        [saldoRestante]="saldoRestante"
+        [mensaje]="mensaje">
+    </app-panel-resultados>
 </div>

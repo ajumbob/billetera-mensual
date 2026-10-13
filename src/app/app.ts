@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { BilleteraService } from './billetera';
+import { PanelResultadosComponent } from './panel-resultados/panel-resultados';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, PanelResultadosComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -21,11 +22,9 @@ export class App {
   mensaje: string = '';
   mostrarResultados: boolean = false;
 
-  // Inyectamos el servicio para separar la lógica del diseño
   private billeteraService = inject(BilleteraService);
 
   calcularSaldo(): void {
-    // Delegamos los cálculos matemáticos al servicio
     this.totalGastos = this.billeteraService.calcularTotalGastos(this.gastoComida, this.gastoServicios, this.gastoEntretenimiento);
     this.saldoRestante = this.billeteraService.calcularSaldo(this.ingreso, this.totalGastos);
     this.mensaje = this.billeteraService.obtenerMensajeAlerta(this.saldoRestante, this.ingreso);

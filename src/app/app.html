@@ -1,0 +1,31 @@
+<div class="wallet-container">
+    <h2>Mi Billetera Mensual</h2>
+
+    <div class="input-group">
+        <label>Ingreso Familiar ($):</label>
+        <input type="number" [(ngModel)]="ingreso" class="ingreso-input">
+    </div>
+
+    <div class="input-group">
+        <label>Gastos en Comida ($):</label>
+        <input type="number" [(ngModel)]="gastoComida" placeholder="Ej: 300">
+    </div>
+
+    <div class="input-group">
+        <label>Servicios Básicos (Luz, Internet) ($):</label>
+        <input type="number" [(ngModel)]="gastoServicios" placeholder="Ej: 80">
+    </div>
+
+    <div class="input-group">
+        <label>Entretenimiento ($):</label>
+        <input type="number" [(ngModel)]="gastoEntretenimiento" placeholder="Ej: 50">
+    </div>
+
+    <button (click)="calcularSaldo()">Calcular Saldo</button>
+
+    <div *ngIf="mostrarResultados" class="resultados">
+        <p>Total Gastos: $<span class="total-gastos">{{ totalGastos }}</span></p>
+        <p>Saldo Restante: $<span class="saldo-restante" [class.negativo]="saldoRestante < 0">{{ saldoRestante }}</span></p>
+        <p class="alerta" [class.negativo]="saldoRestante < 0">{{ mensaje }}</p>
+    </div>
+</div>

@@ -22,6 +22,7 @@
     </div>
 
     <button (click)="calcularSaldo()">Calcular Saldo</button>
+    <button (click)="limpiar()" class="btn-limpiar">Limpiar Datos</button>
 
     <div *ngIf="mostrarResultados" class="resultados">
         <p>Total Gastos: $<span class="total-gastos">{{ totalGastos }}</span></p>

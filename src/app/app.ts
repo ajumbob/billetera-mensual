@@ -37,5 +37,13 @@ export class App {
     }
     
     this.mostrarResultados = true;
+    
+  }
+  limpiar(): void {
+    this.ingreso = 1500;
+    this.gastoComida = 0;
+    this.gastoServicios = 0;
+    this.gastoEntretenimiento = 0;
+    this.mostrarResultados = false;
   }
 }
